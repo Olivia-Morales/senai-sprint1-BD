@@ -23,7 +23,7 @@ create table Produto(
 idProduto tinyint primary key identity (1,1),
 idSubcategoria tinyint foreign key references Subcategoria(idSubcategoria),
 Produto varchar (15) not null,
-Valor float not null,
+Valor money not null,
 );
 go
 create table Clientes(
