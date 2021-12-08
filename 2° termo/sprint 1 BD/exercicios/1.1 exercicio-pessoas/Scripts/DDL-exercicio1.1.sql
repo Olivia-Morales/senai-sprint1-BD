@@ -1,0 +1,35 @@
+
+CREATE DATABASE informacoes_pessoas;
+GO 
+
+USE informacoes_pessoas;
+GO 
+
+CREATE TABLE Pessoa(
+  idPessoa INT PRIMARY KEY IDENTITY(1,1),
+  nomePessoa VARCHAR(20) NOT NULL UNIQUE   
+);
+GO
+
+CREATE TABLE Telefone(
+idTelefone INT PRIMARY KEY IDENTITY(1,1),
+idPessoa INT FOREIGN KEY REFERENCES PESSOA(idPessoa),
+numeroTelefone CHAR(11) NOT NULL 
+);
+GO 
+
+CREATE TABLE Email(
+idEmail INT PRIMARY KEY IDENTITY(1,1),
+idPessoa INT FOREIGN KEY REFERENCES PESSOA(idPessoa),
+end_email VARCHAR(256) NOT NULL UNIQUE
+);
+GO 
+
+
+
+CREATE TABLE CNH(
+idCNH INT PRIMARY KEY IDENTITY(1,1),
+idPessoa INT FOREIGN KEY REFERENCES PESSOA(idPessoa),
+descricao CHAR(11) NOT NULL UNIQUE
+);
+GO 
